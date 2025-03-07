@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>love you forever</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <style>
+      /* header and body setup */
+      html {
+        font-family: 'Open Sans', sans-serif;
+        background: url(pattern.png);
+      }
+
+      body {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: white;
+        position: relative;
+      }
+
+      /* Header styling */
+      header {
+        height: 150px;
+      }
+
+      header img {
+        width: 100px;
+        position: absolute;
+        right: 32.5px;
+        top: 32.5px;
+      }
+
+      h1 {
+        font-size: 50px;
+        line-height: 140px;
+        margin: 0 0 0 32.5px;
+      }
+
+      /* main section and video styling */
+      main {
+        background: #ccc;
+      }
+
+      article {
+        padding: 20px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      video {
+        flex: 0 0 400px;
+        margin-right: 20px;
+      }
+
+      article div {
+        flex: 1;
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+
+      p {
+        line-height: 2;
+      }
+
+      /* further info links */
+      .further-info {
+        clear: left;
+        padding: 40px 0;
+        background: #c13832;
+        box-shadow: inset 0 3px 2px rgba(0,0,0,0.5),
+                    inset 0 -3px 2px rgba(0,0,0,0.5);
+      }
+
+      .further-info a {
+        width: 25%;
+        display: block;
+        float: left;
+      }
+
+      .further-info img {
+        max-width: 100%;
+      }
+
+      .clearfix {
+        clear: both;
+      }
+
+      /* Red panda image */
+      .red-panda img {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* Time counter styling */
+      .time-counter {
+        text-align: center;
+        padding: 20px;
+        background: #f0f0f0;
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>陈杨琦&郝若璇</h1>
+      <img src="img/love_icon.png" class="header img">
+    </header>
+
+    <main>
+      <article>
+        <video src="img/love_video.mp4" width="400px" height="400px" controls></video>
+        <div>
+          <h2>爱与誓言</h2>
+          <p> 在无声的岁月里，两颗心悄然靠近，如同星辰依偎夜空，彼此辉映。那是一种无声的默契，无需言语，却胜过千言万语。它是彼此眼中的光芒，是寒冷时温暖的依靠，是疲惫时安心的港湾。时间或许会改变许多，但那份始终如一的陪伴，却成为生命中最深的印记。无论前路是晴是雨，彼此的双手始终紧握，用行动书写着无声的承诺，在平凡的日子里，诠释着最深沉的情感。</p>
+          <p> 遇见你，仿佛星辰坠入眼眸，点亮了我原本平淡的世界。你的笑容如春风拂过，温柔了时光，也温柔了我的心。与你在一起的每一刻，都让我觉得无比珍贵。我无法用言语完全表达对你的心意，但我知道，无论是清晨的朝阳，还是夜晚的繁星，我都想与你一同分享。你是我生命中最美的风景，而我，愿意用余生守护这份美好，陪你走过每一个春夏秋冬。</p>
+        </div>
+      </article>
+
+      <div class="further-info">
+        <a href="https://www.mozilla.org/en-US/firefox/new/">
+          <img src="img/p1.jpg" style="height: 400px; width: 400px;">
+        </a>
+        <a href="https://www.mozilla.org/">
+          <img src="img/p2.jpg" style="height: 400px; width: 400px;">
+        </a>
+        <a href="https://addons.mozilla.org/">
+          <img src="img/p5.jpg" style="height: 400px; width: 400px;">
+        </a>  
+        <a href="https://developer.mozilla.org/en-US/">
+          <img src="img/p4.jpg" style="height: 400px; width: 400px;">
+        </a>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="red-panda">
+        <picture>
+          <source srcset="img/p6.jpg" type="image" media="(max-width: 600px)">
+          <img src="img/p6.jpg" alt="Red Panda" style="width: 1500px; height: 200px;">
+        </picture>
+      </div>
+
+      <!-- Time counter -->
+      <div class="time-counter">
+        <p>我们已经在一起：</p>
+        <p id="time-counter"></p>
+      </div>
+    </main>
+
+    <script>
+      // 定义起始时间（在一起的第一天）
+      const startDate = new Date("2024-10-21T00:00:00"); // 修改为你们的起始时间
+
+      // 更新时间计数器
+      function updateTimeCounter() {
+        const now = new Date(); // 获取当前时间
+        const timeDiff = now - startDate; // 计算时间差（毫秒）
+
+        // 将时间差转换为天、小时、分钟、秒
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        // 更新页面内容
+        document.getElementById("time-counter").innerText = 
+          `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+      }
+
+      // 每秒更新一次计数器
+      setInterval(updateTimeCounter, 1000);
+
+      // 初始化计数器
+      updateTimeCounter();
+    </script>
+  </body>
+</html>
